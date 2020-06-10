@@ -5,4 +5,11 @@
     <string name="home">Beranda</string>
     <string name="covid_19">Covid-19</string>
     <string name="news">Berita</string>
+    <string name="_0">0</string>
+    <string name="kasus_positif">Kasus Positif</string>
+    <string name="kasus_sembuh">Kasus Sembuh</string>
+    <string name="kasus_meninggal">Kasus Meninggal</string>
+    <string name="latest_update">Update Terkini</string>
+    <string name="indonesia">INDONESIA</string>
+    <string name="to_detail">Lihat Detail Penyebaran ></string>
 </resources>

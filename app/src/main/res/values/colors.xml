@@ -6,5 +6,6 @@
 
     <color name="colorRed">#FF0000</color>
     <color name="colorGreen">#0DAA2D</color>
-    <color name="colorOrange">#AEA306</color>
+    <color name="colorOrange">#D3C71F</color>
+    <color name="colorGrey">#EBEDF9</color>
 </resources>
