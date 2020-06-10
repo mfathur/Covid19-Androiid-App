@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SpreadDetailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/detail_head_spread_box"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/box"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/txt_head_positive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/positive"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_head_recover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="72dp"
+                android:layout_toEndOf="@id/txt_head_positive"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/recovered"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_head_death"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/txt_head_recover"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/death"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/num_head_positive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_head_positive"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/_0"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/num_head_recovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_head_recover"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@id/num_head_positive"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/_0"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/num_head_death"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_head_death"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@id/num_head_recovered"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/_0"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/latest_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_head_spread_box"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="8dp"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="end"
+            android:text="@string/latest_update" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_detailRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/latest_update" />
+
+    </RelativeLayout>
+
+</FrameLayout>
