@@ -16,4 +16,5 @@
     <string name="recovered">Sembuh</string>
     <string name="death">Meninggal</string>
     <string name="latest_update">Update terakhir 8 Juni 2020</string>
+    <string name="read_more"><![CDATA[Selengkapnya >]]></string>
 </resources>
