@@ -17,4 +17,6 @@
     <string name="death">Meninggal</string>
     <string name="latest_update">Update terakhir 8 Juni 2020</string>
     <string name="read_more"><![CDATA[Selengkapnya >]]></string>
+    <string name="to_global_spread_detail">Lihat Data Global</string>
+    <string name="data_global">Data Global</string>
 </resources>
