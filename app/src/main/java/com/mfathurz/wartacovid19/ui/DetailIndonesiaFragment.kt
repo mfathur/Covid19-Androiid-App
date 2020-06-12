@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.mfathurz.wartacovid19.R
 import kotlinx.android.synthetic.main.fragment_detail_indonesia.*
@@ -22,6 +23,7 @@ class DetailIndonesiaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        buttonClick()
         detailRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -33,5 +35,15 @@ class DetailIndonesiaFragment : Fragment() {
             }
         })
     }
+
+    private fun buttonClick() {
+        fab_toGlobalSpreadDetail.setOnClickListener {
+            val actionToGlobalDetail=DetailIndonesiaFragmentDirections.toDetailGlobalFragment()
+            Navigation.findNavController(it).navigate(actionToGlobalDetail)
+        }
+
+        btn_backToHomeFragment.setOnClickListener { requireActivity().onBackPressed() }
+    }
+
 
 }

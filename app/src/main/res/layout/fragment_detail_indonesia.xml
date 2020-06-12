@@ -15,6 +15,7 @@
             android:id="@+id/collapsingToolbarLayout"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
+            android:backgroundTint="@android:color/transparent"
             app:layout_scrollFlags="scroll|enterAlways"
             app:titleEnabled="false">
 
@@ -26,7 +27,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="8dp"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/back" />
 
             <TextView
                 android:layout_width="wrap_content"

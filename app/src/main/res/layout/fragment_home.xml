@@ -71,7 +71,7 @@
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <Button
-            android:id="@+id/go_to_detail"
+            android:id="@+id/btn_goToDetail"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

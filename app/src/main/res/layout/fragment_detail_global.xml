@@ -19,7 +19,7 @@
             app:titleEnabled="false">
 
             <ImageButton
-                android:id="@+id/btn_backToHomeFragment"
+                android:id="@+id/btn_backToDetailIndonesia"
                 style="@style/Widget.AppCompat.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

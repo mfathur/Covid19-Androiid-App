@@ -9,7 +9,15 @@
         android:id="@+id/homeFragment"
         android:name="com.mfathurz.wartacovid19.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/toDetailIndonesiaFragment"
+            app:destination="@id/detailIndonesiaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/covidFragment"
         android:name="com.mfathurz.wartacovid19.ui.CovidFragment"
@@ -20,4 +28,22 @@
         android:name="com.mfathurz.wartacovid19.ui.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/detailIndonesiaFragment"
+        android:name="com.mfathurz.wartacovid19.ui.DetailIndonesiaFragment"
+        android:label="fragment_detail_indonesia"
+        tools:layout="@layout/fragment_detail_indonesia" >
+        <action
+            android:id="@+id/toDetailGlobalFragment"
+            app:destination="@id/detailGlobalFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_up"
+            app:popEnterAnim="@anim/slide_in_down"
+            app:popExitAnim="@anim/slide_out_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailGlobalFragment"
+        android:name="com.mfathurz.wartacovid19.ui.DetailGlobalFragment"
+        android:label="fragment_detail_global"
+        tools:layout="@layout/fragment_detail_global" />
 </navigation>
