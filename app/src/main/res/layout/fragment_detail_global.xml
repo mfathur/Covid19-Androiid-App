@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SpreadDetailFragment">
+    tools:context=".ui.DetailGlobalFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -26,7 +26,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="8dp"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/back" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,7 +35,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="48dp"
                 android:fontFamily="@font/lato_bold"
-                android:text="Indonesia"
+                android:text="@string/global"
                 android:textSize="24sp" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -150,19 +151,4 @@
             tools:listitem="@layout/item_rv_spread_detail" />
 
     </RelativeLayout>
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fab_toGlobalSpreadDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="@string/to_global_spread_detail"
-        android:text="@string/data_global"
-        android:textColor="@android:color/white"
-        app:hideMotionSpec="@android:anim/fade_out"
-        app:icon="@drawable/ic_globe"
-        app:iconTint="@android:color/white"
-        app:showMotionSpec="@android:anim/fade_in" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
