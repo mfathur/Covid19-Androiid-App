@@ -47,7 +47,6 @@ class HomeFragment : Fragment() {
                 numDeaths.text=Utils.numberConverter(item.meninggal)
                 numRecovered.text=Utils.numberConverter(item.sembuh)
             }
-
         })
     }
 
