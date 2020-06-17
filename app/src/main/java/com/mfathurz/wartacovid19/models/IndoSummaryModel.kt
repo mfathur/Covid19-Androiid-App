@@ -1,3 +1,8 @@
 package com.mfathurz.wartacovid19.models
 
-class IndoSummaryModel : ArrayList<IndoSummaryModelItem>()
+data class IndoSummaryModel(
+    val jumlahKasus: Int,
+    val meninggal: Int,
+    val perawatan: Int,
+    val sembuh: Int
+)
