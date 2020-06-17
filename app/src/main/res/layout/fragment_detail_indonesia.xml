@@ -21,8 +21,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:background="@android:color/white">
+                android:background="@android:color/white"
+                android:paddingBottom="8dp">
 
                 <ImageButton
                     android:id="@+id/btn_backToHomeFragment"
@@ -39,13 +39,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:layout_toEndOf="@id/btn_backToHomeFragment"
                     android:fontFamily="@font/lato_bold"
-                    android:layout_marginTop="8dp"
                     android:text="Indonesia"
                     android:textSize="24sp" />
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/detail_head_spread_box"
                     android:layout_width="match_parent"
                     android:layout_height="78dp"
@@ -54,84 +54,108 @@
                     android:background="@drawable/box"
                     android:backgroundTint="@color/colorPrimaryDark"
                     android:gravity="center"
+                    android:padding="4dp">
 
-                    android:padding="4dp"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="122dp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="122dp" />
 
                     <TextView
                         android:id="@+id/txt_head_positive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/lato_regular"
                         android:text="@string/positive"
                         android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="@id/guideline1"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/txt_head_recover"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="72dp"
-                        android:layout_toEndOf="@id/txt_head_positive"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/lato_regular"
                         android:text="@string/recovered"
                         android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/txt_head_death"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/txt_head_recover"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/lato_regular"
                         android:text="@string/death"
                         android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/guideline2"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/num_head_positive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/txt_head_positive"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/lato_bold"
                         android:text="@string/_0"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/guideline1"
+                        app:layout_constraintTop_toBottomOf="@id/txt_head_positive" />
 
                     <TextView
                         android:id="@+id/num_head_recovered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/txt_head_recover"
-                        android:layout_marginStart="110dp"
                         android:layout_marginTop="4dp"
-                        android:layout_toEndOf="@id/num_head_positive"
                         android:fontFamily="@font/lato_bold"
                         android:text="@string/_0"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toRightOf="@id/guideline1"
+                        app:layout_constraintRight_toLeftOf="@id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@id/txt_head_recover" />
 
                     <TextView
                         android:id="@+id/num_head_death"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/txt_head_death"
-                        android:layout_marginStart="120dp"
                         android:layout_marginTop="4dp"
-                        android:layout_toEndOf="@id/num_head_recovered"
                         android:fontFamily="@font/lato_bold"
                         android:text="@string/_0"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toRightOf="@id/guideline2"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txt_head_death" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </RelativeLayout>
-
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
