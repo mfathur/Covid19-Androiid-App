@@ -1,0 +1,194 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "e9801d1326f2f5d743023beb6689377a",
+    "entities": [
+      {
+        "tableName": "global_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `NewConfirmed` INTEGER NOT NULL, `NewDeaths` INTEGER NOT NULL, `NewRecovered` INTEGER NOT NULL, `TotalConfirmed` INTEGER NOT NULL, `TotalDeaths` INTEGER NOT NULL, `TotalRecovered` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewConfirmed",
+            "columnName": "NewConfirmed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewDeaths",
+            "columnName": "NewDeaths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewRecovered",
+            "columnName": "NewRecovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalConfirmed",
+            "columnName": "TotalConfirmed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalDeaths",
+            "columnName": "TotalDeaths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalRecovered",
+            "columnName": "TotalRecovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "country_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Country` TEXT NOT NULL, `CountryCode` TEXT NOT NULL, `Date` TEXT NOT NULL, `NewConfirmed` INTEGER NOT NULL, `NewDeaths` INTEGER NOT NULL, `NewRecovered` INTEGER NOT NULL, `Slug` TEXT NOT NULL, `TotalConfirmed` INTEGER NOT NULL, `TotalDeaths` INTEGER NOT NULL, `TotalRecovered` INTEGER NOT NULL, PRIMARY KEY(`Country`))",
+        "fields": [
+          {
+            "fieldPath": "Country",
+            "columnName": "Country",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CountryCode",
+            "columnName": "CountryCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Date",
+            "columnName": "Date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewConfirmed",
+            "columnName": "NewConfirmed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewDeaths",
+            "columnName": "NewDeaths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewRecovered",
+            "columnName": "NewRecovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Slug",
+            "columnName": "Slug",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalConfirmed",
+            "columnName": "TotalConfirmed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalDeaths",
+            "columnName": "TotalDeaths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalRecovered",
+            "columnName": "TotalRecovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "Country"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "province_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fid` INTEGER NOT NULL, `kasusMeni` INTEGER NOT NULL, `kasusPosi` INTEGER NOT NULL, `kasusSemb` INTEGER NOT NULL, `kodeProvi` INTEGER NOT NULL, `provinsi` TEXT NOT NULL, PRIMARY KEY(`kodeProvi`))",
+        "fields": [
+          {
+            "fieldPath": "fid",
+            "columnName": "fid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kasusMeni",
+            "columnName": "kasusMeni",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kasusPosi",
+            "columnName": "kasusPosi",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kasusSemb",
+            "columnName": "kasusSemb",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kodeProvi",
+            "columnName": "kodeProvi",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provinsi",
+            "columnName": "provinsi",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "kodeProvi"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e9801d1326f2f5d743023beb6689377a')"
+    ]
+  }
+}

@@ -23,9 +23,8 @@ import kotlinx.android.synthetic.main.fragment_detail_indonesia.*
 
 class DetailIndonesiaFragment : Fragment() {
 
-    lateinit var detailIndonesiaViewModel : DetailIndonesiaViewModel
+    private lateinit var detailIndonesiaViewModel : DetailIndonesiaViewModel
     private var indoSummary : IndoSummaryModel?=null
-
     private val adapter= ProvinceListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +53,7 @@ class DetailIndonesiaFragment : Fragment() {
             num_head_death.text = Utils.numberConverter(indoSummary?.meninggal as Int)
             num_head_recovered.text=Utils.numberConverter(indoSummary?.sembuh as Int)
         }
+
         detailIndonesiaViewModel.covidProvinceSummary.observe(viewLifecycleOwner, Observer {
             val list : ArrayList<ProvinceData> = ArrayList()
             it.body()?.let {
@@ -84,14 +84,13 @@ class DetailIndonesiaFragment : Fragment() {
         detailRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                fab_toGlobalSpreadDetail?.let {
-                    if (dy > 0 && fab_toGlobalSpreadDetail.visibility == View.VISIBLE)
-                        fab_toGlobalSpreadDetail.hide();
+                fab_toGlobalSpreadDetail?.let {fab->
+                    if (dy > 0 && fab.visibility == View.VISIBLE)
+                        fab.hide();
 
-                    else if (dy < 0 && fab_toGlobalSpreadDetail.visibility != View.VISIBLE)
-                        fab_toGlobalSpreadDetail.show();
+                    else if (dy < 0 && fab.visibility != View.VISIBLE)
+                        fab.show();
                 }
-
             }
         })
     }

@@ -20,8 +20,8 @@ import kotlinx.android.synthetic.main.fragment_detail_global.*
 
 class DetailGlobalFragment : Fragment() {
 
-    lateinit var detailGlobalViewModel: DetailGlobalViewModel
-    val adapter=CountryListAdapter()
+    private lateinit var detailGlobalViewModel: DetailGlobalViewModel
+    private val adapter=CountryListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,24 +42,16 @@ class DetailGlobalFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         buttonClick()
 
-
         detailGlobalViewModel.covidGlobalSummary.observe(viewLifecycleOwner, Observer {
-            it.body()?.let {
-                num_head_positive.text=Utils.numberConverter(it.Global.TotalConfirmed)
-                num_head_death.text=Utils.numberConverter(it.Global.TotalDeaths)
-                num_head_recovered.text=Utils.numberConverter(it.Global.TotalRecovered)
+            it.body()?.let {data->
+                num_head_positive.text=Utils.numberConverter(data.Global.TotalConfirmed)
+                num_head_death.text=Utils.numberConverter(data.Global.TotalDeaths)
+                num_head_recovered.text=Utils.numberConverter(data.Global.TotalRecovered)
 
-                val iterator=it.Countries.listIterator()
-                val list :ArrayList<Country> = ArrayList()
-                while (iterator.hasNext()){
-                    val item =iterator.next()
-                    list.add(item)
-                }
-                adapter.submitList(list)
+                adapter.submitList(data.Countries)
                 detailGlobalRecyclerView.adapter=adapter
                 detailGlobalRecyclerView.setHasFixedSize(true)
                 detailGlobalRecyclerView.layoutManager=LinearLayoutManager(requireContext())
-
             }
         })
 

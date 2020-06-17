@@ -1,6 +1,11 @@
 package com.mfathurz.wartacovid19.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "country_table")
 data class Country(
+    @PrimaryKey
     val Country: String,
     val CountryCode: String,
     val Date: String,
