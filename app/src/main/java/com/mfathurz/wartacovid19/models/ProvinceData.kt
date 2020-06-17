@@ -1,6 +1,6 @@
 package com.mfathurz.wartacovid19.models
 
-data class Data(
+data class ProvinceData(
     val fid: Int,
     val kasusMeni: Int,
     val kasusPosi: Int,

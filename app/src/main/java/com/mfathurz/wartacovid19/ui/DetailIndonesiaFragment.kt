@@ -12,9 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mfathurz.wartacovid19.R
 import com.mfathurz.wartacovid19.Repository
-import com.mfathurz.wartacovid19.models.Data
+import com.mfathurz.wartacovid19.models.ProvinceData
+import com.mfathurz.wartacovid19.models.IndoSummaryModel
 import com.mfathurz.wartacovid19.network.CovidNetwork
 import com.mfathurz.wartacovid19.ui.adapters.ProvinceListAdapter
+import com.mfathurz.wartacovid19.utils.Utils
 import com.mfathurz.wartacovid19.viewmodels.DetailIndonesiaViewModel
 import com.mfathurz.wartacovid19.viewmodels.DetailIndonesiaViewModelFactory
 import kotlinx.android.synthetic.main.fragment_detail_indonesia.*
@@ -22,9 +24,9 @@ import kotlinx.android.synthetic.main.fragment_detail_indonesia.*
 class DetailIndonesiaFragment : Fragment() {
 
     lateinit var detailIndonesiaViewModel : DetailIndonesiaViewModel
+    private var indoSummary : IndoSummaryModel?=null
 
-    private val adapter=
-        ProvinceListAdapter()
+    private val adapter= ProvinceListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,8 +48,14 @@ class DetailIndonesiaFragment : Fragment() {
         fabAnim()
         buttonClick()
 
+        arguments?.let {
+            indoSummary=DetailIndonesiaFragmentArgs.fromBundle(it).indonesiaSummary
+            num_head_positive.text=Utils.numberConverter(indoSummary?.jumlahKasus as Int)
+            num_head_death.text = Utils.numberConverter(indoSummary?.meninggal as Int)
+            num_head_recovered.text=Utils.numberConverter(indoSummary?.sembuh as Int)
+        }
         detailIndonesiaViewModel.covidProvinceSummary.observe(viewLifecycleOwner, Observer {
-            val list : ArrayList<Data> = ArrayList()
+            val list : ArrayList<ProvinceData> = ArrayList()
             it.body()?.let {
                 val iterator=it.data.listIterator()
                 while (iterator.hasNext()){
@@ -58,6 +66,7 @@ class DetailIndonesiaFragment : Fragment() {
                 adapter.submitList(list)
                 detailRecyclerView.adapter=adapter
                 detailRecyclerView.layoutManager=LinearLayoutManager(requireContext())
+                detailRecyclerView.setHasFixedSize(true)
             }
         })
     }
@@ -75,11 +84,14 @@ class DetailIndonesiaFragment : Fragment() {
         detailRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                if (dy > 0 && fab_toGlobalSpreadDetail.visibility == View.VISIBLE)
-                    fab_toGlobalSpreadDetail.hide();
+                fab_toGlobalSpreadDetail?.let {
+                    if (dy > 0 && fab_toGlobalSpreadDetail.visibility == View.VISIBLE)
+                        fab_toGlobalSpreadDetail.hide();
 
-                else if (dy < 0 && fab_toGlobalSpreadDetail.visibility != View.VISIBLE)
-                    fab_toGlobalSpreadDetail.show();
+                    else if (dy < 0 && fab_toGlobalSpreadDetail.visibility != View.VISIBLE)
+                        fab_toGlobalSpreadDetail.show();
+                }
+
             }
         })
     }

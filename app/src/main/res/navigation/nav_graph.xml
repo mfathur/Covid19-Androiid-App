@@ -40,6 +40,12 @@
             app:exitAnim="@anim/slide_out_up"
             app:popEnterAnim="@anim/slide_in_down"
             app:popExitAnim="@anim/slide_out_down" />
+
+        <argument
+            android:name="IndonesiaSummary"
+            app:argType="com.mfathurz.wartacovid19.models.IndoSummaryModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/detailGlobalFragment"
