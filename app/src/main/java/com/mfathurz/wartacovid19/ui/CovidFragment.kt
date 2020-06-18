@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mfathurz.wartacovid19.R
+import com.mfathurz.wartacovid19.database.InfoAboutCovid
+import com.mfathurz.wartacovid19.ui.adapters.InfoCovidRecyclerAdapter
+import kotlinx.android.synthetic.main.fragment_covid.*
 
 
 class CovidFragment : Fragment() {
@@ -16,6 +20,27 @@ class CovidFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_covid, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        symptomRecyclerView.apply {
+            layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+            setHasFixedSize(true)
+            adapter=InfoCovidRecyclerAdapter(InfoAboutCovid.symptoms)
+        }
+
+        transmissionRecyclerView.apply {
+            layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+            setHasFixedSize(true)
+            adapter=InfoCovidRecyclerAdapter(InfoAboutCovid.transmissions)
+        }
+
+        preventionRecyclerView.apply {
+            layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+            setHasFixedSize(true)
+            adapter=InfoCovidRecyclerAdapter(InfoAboutCovid.prevention)
+        }
     }
 
 }

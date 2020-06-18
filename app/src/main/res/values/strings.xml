@@ -20,4 +20,8 @@
     <string name="data_global">Data Global</string>
     <string name="global">Global</string>
     <string name="back">Kembali</string>
+    <string name="what_is_covid">Apa itu COVID-19?</string>
+    <string name="symptom">Gejala</string>
+    <string name="transmission">Penularan</string>
+    <string name="prevention">Pencegahan</string>
 </resources>

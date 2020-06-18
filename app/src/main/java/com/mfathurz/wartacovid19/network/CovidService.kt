@@ -11,6 +11,8 @@ import retrofit2.http.GET
 import retrofit2.http.Url
 
 interface CovidService {
+    @GET("/api")
+    suspend fun getIndoSummaryModel():Response<IndoSummaryModel>
 
     @GET("/api/provinsi")
     suspend fun getProvinceSummaryModel():Response<ProvinceSummaryModel>
@@ -20,10 +22,11 @@ interface CovidService {
 }
 
 object CovidNetwork{
-    val retrofit=Retrofit.Builder()
+    val retrofit by lazy { Retrofit.Builder()
         .baseUrl(COVID_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+    }
 
-    val infoCovid= retrofit.create(CovidService::class.java)
+    val covidService by lazy { retrofit.create(CovidService::class.java) }
 }
