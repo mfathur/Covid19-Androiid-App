@@ -16,18 +16,18 @@ interface CovidDataDao {
     suspend fun insertAllCountries(countries : List<Country>)
 
     @Query("SELECT * from country_table")
-    suspend fun getAllCountries() : Flow<List<Country>>
+    fun getAllCountries() : Flow<List<Country>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllProvinces(province : List<ProvinceData>)
 
     @Query("SELECT * from province_table")
-    suspend fun getAllProvinces() : Flow<List<ProvinceData>>
+    fun getAllProvinces() : Flow<List<ProvinceData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateOrInsertGlobalData(global : Global)
 
     @Query("SELECT * from global_table WHERE id=${Constant.ID}")
-    suspend fun getGlobalData() : Flow<Global>
+    fun getGlobalData() : Flow<Global>
 
 }
