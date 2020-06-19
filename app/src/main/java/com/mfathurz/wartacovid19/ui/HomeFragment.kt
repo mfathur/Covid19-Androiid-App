@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -31,6 +33,11 @@ class HomeFragment : Fragment() {
         val repository=Repository(CovidNetwork)
         val homeViewModelFactory=HomeViewModelFactory(repository)
         homeViewModel=ViewModelProvider(this,homeViewModelFactory).get(HomeViewModel::class.java)
+
+        requireActivity().apply {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.statusBarColor= ContextCompat.getColor(requireContext(),R.color.colorPrimaryDark)
+        }
     }
 
     override fun onCreateView(

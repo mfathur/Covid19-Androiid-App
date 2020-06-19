@@ -39,6 +39,7 @@ object NewsNetwork{
 
         val newsService by lazy {
             Retrofit.Builder()
+                .client(client)
                 .baseUrl(Constant.NEWS_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(NewsService::class.java)
