@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.mfathurz.wartacovid19.R
 import com.mfathurz.wartacovid19.models.news.Article
+import com.mfathurz.wartacovid19.ui.NewsFragmentDirections
 import com.mfathurz.wartacovid19.utils.Utils
 import com.mfathurz.wartacovid19.utils.showToastMessage
 import kotlinx.android.synthetic.main.item_rv_news.view.*
@@ -26,7 +28,9 @@ class NewsListAdapter : ListAdapter<Article,NewsListAdapter.NewsViewHolder>(News
                 txt_item_content_news.text=data.content
                 txt_item_publishedAt.text= Utils.formatDate(data.publishedAt)
                 btn_readMore.setOnClickListener {
-                    view.context.showToastMessage(data.url)
+                    val actionToDetailNews=NewsFragmentDirections.toDetailNewsFragment()
+                    actionToDetailNews.newsUrl=data.url
+                    Navigation.findNavController(it).navigate(actionToDetailNews)
                 }
             }
         }
