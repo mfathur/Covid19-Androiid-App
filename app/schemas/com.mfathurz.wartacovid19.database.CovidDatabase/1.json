@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e9801d1326f2f5d743023beb6689377a",
+    "identityHash": "a807365fd351bcbe60351bd8710d2d28",
     "entities": [
       {
         "tableName": "global_table",
@@ -136,7 +136,7 @@
       },
       {
         "tableName": "province_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fid` INTEGER NOT NULL, `kasusMeni` INTEGER NOT NULL, `kasusPosi` INTEGER NOT NULL, `kasusSemb` INTEGER NOT NULL, `kodeProvi` INTEGER NOT NULL, `provinsi` TEXT NOT NULL, PRIMARY KEY(`kodeProvi`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fid` INTEGER NOT NULL, `deathCase` INTEGER NOT NULL, `positiveCase` INTEGER NOT NULL, `curedCase` INTEGER NOT NULL, `provinceCode` INTEGER NOT NULL, `province` TEXT NOT NULL, PRIMARY KEY(`provinceCode`))",
         "fields": [
           {
             "fieldPath": "fid",
@@ -145,39 +145,39 @@
             "notNull": true
           },
           {
-            "fieldPath": "kasusMeni",
-            "columnName": "kasusMeni",
+            "fieldPath": "deathCase",
+            "columnName": "deathCase",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "kasusPosi",
-            "columnName": "kasusPosi",
+            "fieldPath": "positiveCase",
+            "columnName": "positiveCase",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "kasusSemb",
-            "columnName": "kasusSemb",
+            "fieldPath": "curedCase",
+            "columnName": "curedCase",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "kodeProvi",
-            "columnName": "kodeProvi",
+            "fieldPath": "provinceCode",
+            "columnName": "provinceCode",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "provinsi",
-            "columnName": "provinsi",
+            "fieldPath": "province",
+            "columnName": "province",
             "affinity": "TEXT",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "kodeProvi"
+            "provinceCode"
           ],
           "autoGenerate": false
         },
@@ -188,7 +188,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e9801d1326f2f5d743023beb6689377a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a807365fd351bcbe60351bd8710d2d28')"
     ]
   }
 }

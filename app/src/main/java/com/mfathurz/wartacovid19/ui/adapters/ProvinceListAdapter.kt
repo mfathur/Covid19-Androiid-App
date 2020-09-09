@@ -22,10 +22,10 @@ class ProvinceListAdapter :ListAdapter<ProvinceData, ProvinceListAdapter.Provinc
     inner class ProvinceViewHolder(val view : View) : RecyclerView.ViewHolder(view){
         fun bind(provinceData : ProvinceData){
             with(view){
-                txt_item_area.text=provinceData.provinsi
-                num_item_positive.text=Utils.numberConverter(provinceData.kasusPosi)
-                num_item_recovered.text=Utils.numberConverter(provinceData.kasusSemb)
-                num_item_death.text=Utils.numberConverter(provinceData.kasusMeni)
+                txt_item_area.text=provinceData.province
+                num_item_positive.text=Utils.numberConverter(provinceData.positiveCase)
+                num_item_recovered.text=Utils.numberConverter(provinceData.curedCase)
+                num_item_death.text=Utils.numberConverter(provinceData.deathCase)
             }
         }
     }
@@ -33,7 +33,7 @@ class ProvinceListAdapter :ListAdapter<ProvinceData, ProvinceListAdapter.Provinc
 
 private class ProvinceCallBack:DiffUtil.ItemCallback<ProvinceData>(){
     override fun areItemsTheSame(oldItem: ProvinceData, newItem: ProvinceData): Boolean {
-        return oldItem.provinsi==newItem.provinsi
+        return oldItem.province==newItem.province
     }
 
     override fun areContentsTheSame(oldItem: ProvinceData, newItem: ProvinceData): Boolean {

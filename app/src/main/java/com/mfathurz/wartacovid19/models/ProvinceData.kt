@@ -2,14 +2,20 @@ package com.mfathurz.wartacovid19.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "province_table")
 data class ProvinceData(
     val fid: Int,
-    val kasusMeni: Int,
-    val kasusPosi: Int,
-    val kasusSemb: Int,
+    @SerializedName("kasusMeni")
+    val deathCase: Int,
+    @SerializedName("kasusPosi")
+    val positiveCase: Int,
+    @SerializedName("kasusSemb")
+    val curedCase: Int,
     @PrimaryKey
-    val kodeProvi: Int,
-    val provinsi: String
+    @SerializedName("kodeProvi")
+    val provinceCode: Int,
+    @SerializedName("provinsi")
+    val province: String
 )

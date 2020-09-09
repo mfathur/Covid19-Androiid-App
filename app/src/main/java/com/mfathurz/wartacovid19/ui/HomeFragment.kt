@@ -1,7 +1,6 @@
 package com.mfathurz.wartacovid19.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -53,12 +52,12 @@ class HomeFragment : Fragment() {
 
         homeViewModel.indoCovidSummary.observe(viewLifecycleOwner, Observer {
           it.body()?.let {item->
-              numPositive.text=Utils.numberConverter(item.jumlahKasus)
-              numDeaths.text=Utils.numberConverter(item.meninggal)
-              numRecovered.text=Utils.numberConverter(item.sembuh)
-              positive=item.jumlahKasus
-              death=item.meninggal
-              recovered=item.sembuh
+              numPositive.text=Utils.numberConverter(item.cases)
+              numDeaths.text=Utils.numberConverter(item.death)
+              numRecovered.text=Utils.numberConverter(item.cured)
+              positive=item.cases
+              death=item.death
+              recovered=item.cured
             }
         })
     }

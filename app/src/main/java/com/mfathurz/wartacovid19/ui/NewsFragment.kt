@@ -43,7 +43,6 @@ class NewsFragment : Fragment() {
         newsViewModel.news.observe(viewLifecycleOwner, Observer {
             it.body()?.let {news->
                 listAdapter.submitList(news.articles)
-                Log.d("newsresponse",news.articles.toString())
                 newsRecyclerView.apply {
                     adapter=listAdapter
                     layoutManager=LinearLayoutManager(requireContext())

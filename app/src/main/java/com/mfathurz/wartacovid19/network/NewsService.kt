@@ -1,5 +1,6 @@
 package com.mfathurz.wartacovid19.network
 
+import com.mfathurz.wartacovid19.BuildConfig
 import com.mfathurz.wartacovid19.Constant
 import com.mfathurz.wartacovid19.models.news.NewsResponse
 import okhttp3.OkHttpClient
@@ -22,7 +23,7 @@ interface NewsService{
         country:String = "id",
 
         @Query("apiKey")
-        apiKey:String = Constant.NEWS_API_KEY
+        apiKey:String = BuildConfig.NEWS_API_KEY
     ) : Response<NewsResponse>
 }
 
