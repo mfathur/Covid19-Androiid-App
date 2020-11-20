@@ -11,14 +11,13 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mfathurz.wartacovid19.R
-import com.mfathurz.wartacovid19.Repository
+import com.mfathurz.wartacovid19.di.Injection
 import com.mfathurz.wartacovid19.models.IndoSummaryModel
 import com.mfathurz.wartacovid19.models.ProvinceData
-import com.mfathurz.wartacovid19.network.CovidNetwork
 import com.mfathurz.wartacovid19.ui.adapters.ProvinceListAdapter
 import com.mfathurz.wartacovid19.utils.Utils
 import com.mfathurz.wartacovid19.viewmodels.DetailIndonesiaViewModel
-import com.mfathurz.wartacovid19.viewmodels.DetailIndonesiaViewModelFactory
+import com.mfathurz.wartacovid19.viewmodels.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_detail_indonesia.*
 
 class DetailIndonesiaFragment : Fragment() {
@@ -29,9 +28,9 @@ class DetailIndonesiaFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val repository = Repository(CovidNetwork)
-        val viewModelFactory = DetailIndonesiaViewModelFactory(repository)
-        detailIndonesiaViewModel = ViewModelProvider(this, viewModelFactory)
+
+        val factory = ViewModelFactory.getInstance(Injection.provideRepository(requireContext()))
+        detailIndonesiaViewModel = ViewModelProvider(this, factory)
             .get(DetailIndonesiaViewModel::class.java)
     }
 

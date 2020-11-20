@@ -3,7 +3,7 @@ package com.mfathurz.wartacovid19.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mfathurz.wartacovid19.Repository
+import com.mfathurz.wartacovid19.data.Repository
 import com.mfathurz.wartacovid19.models.news.NewsResponse
 import kotlinx.coroutines.launch
 import retrofit2.Response

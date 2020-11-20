@@ -9,7 +9,7 @@ import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mfathurz.wartacovid19.R
-import com.mfathurz.wartacovid19.database.InfoAboutCovid
+import com.mfathurz.wartacovid19.data.local.InfoAboutCovid
 import com.mfathurz.wartacovid19.ui.adapters.InfoCovidRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_covid.*
 

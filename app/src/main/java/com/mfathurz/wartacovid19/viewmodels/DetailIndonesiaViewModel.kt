@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mfathurz.wartacovid19.Repository
+import com.mfathurz.wartacovid19.data.Repository
 import com.mfathurz.wartacovid19.models.ProvinceData
 import com.mfathurz.wartacovid19.models.ProvinceSummaryModel
 import kotlinx.coroutines.launch
