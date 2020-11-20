@@ -8,7 +8,7 @@ import com.mfathurz.wartacovid19.models.GlobalSummaryModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class DetailGlobalViewModel(private val repo :Repository) :ViewModel(){
+class DetailGlobalViewModel(private val repository :Repository) :ViewModel(){
     val covidGlobalSummary = MutableLiveData<Response<GlobalSummaryModel>>()
 
     init {
@@ -16,6 +16,6 @@ class DetailGlobalViewModel(private val repo :Repository) :ViewModel(){
     }
 
     private fun getGlobalSummary() =viewModelScope.launch {
-        covidGlobalSummary.postValue(repo.getGlobalSummary())
+        covidGlobalSummary.postValue(repository.getGlobalSummary())
     }
 }

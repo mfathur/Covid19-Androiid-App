@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
-    lateinit var homeViewModel:HomeViewModel
+    private lateinit var homeViewModel:HomeViewModel
     private var positive=0
     private var death=0
     private var recovered=0

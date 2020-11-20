@@ -10,7 +10,7 @@ import com.mfathurz.wartacovid19.models.ProvinceSummaryModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class DetailIndonesiaViewModel(private val repo: Repository) : ViewModel() {
+class DetailIndonesiaViewModel(private val repository: Repository) : ViewModel() {
     private val covidProvinceSummary: MutableLiveData<Response<ProvinceSummaryModel>> = MutableLiveData()
     private val provinceData: MutableLiveData<ArrayList<ProvinceData>> = MutableLiveData()
 
@@ -19,7 +19,7 @@ class DetailIndonesiaViewModel(private val repo: Repository) : ViewModel() {
     }
 
     private fun getProvinceSummary() = viewModelScope.launch {
-        covidProvinceSummary.postValue(repo.getProvinceSummary())
+        covidProvinceSummary.postValue(repository.getProvinceSummary())
     }
 
     fun getCovidProvinceSummary(): LiveData<Response<ProvinceSummaryModel>> = covidProvinceSummary

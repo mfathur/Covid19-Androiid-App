@@ -8,7 +8,7 @@ import com.mfathurz.wartacovid19.models.news.NewsResponse
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class NewsViewModel(private val repo : Repository) :ViewModel(){
+class NewsViewModel(private val repository : Repository) :ViewModel(){
     val news =MutableLiveData<Response<NewsResponse>>()
 
     init {
@@ -16,6 +16,6 @@ class NewsViewModel(private val repo : Repository) :ViewModel(){
     }
 
     private fun getNews()=viewModelScope.launch {
-        news.postValue(repo.getNews())
+        news.postValue(repository.getNews())
     }
 }
