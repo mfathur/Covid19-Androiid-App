@@ -1,4 +1,4 @@
-package com.mfathurz.wartacovid19.ui.adapters
+package com.mfathurz.wartacovid19.ui.news
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.mfathurz.wartacovid19.R
 import com.mfathurz.wartacovid19.models.news.Article
-import com.mfathurz.wartacovid19.ui.NewsFragmentDirections
+import com.mfathurz.wartacovid19.ui.news.NewsFragmentDirections
 import com.mfathurz.wartacovid19.utils.Utils
 import kotlinx.android.synthetic.main.item_rv_news.view.*
 

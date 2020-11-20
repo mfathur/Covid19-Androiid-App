@@ -1,4 +1,4 @@
-package com.mfathurz.wartacovid19.ui
+package com.mfathurz.wartacovid19.ui.detail_news
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import com.mfathurz.wartacovid19.R
+import com.mfathurz.wartacovid19.ui.detail_news.DetailNewsFragmentArgs
 import kotlinx.android.synthetic.main.fragment_detail_news.*
 
 

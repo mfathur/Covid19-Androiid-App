@@ -1,0 +1,194 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "a807365fd351bcbe60351bd8710d2d28",
+    "entities": [
+      {
+        "tableName": "global_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `NewConfirmed` INTEGER NOT NULL, `NewDeaths` INTEGER NOT NULL, `NewRecovered` INTEGER NOT NULL, `TotalConfirmed` INTEGER NOT NULL, `TotalDeaths` INTEGER NOT NULL, `TotalRecovered` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewConfirmed",
+            "columnName": "NewConfirmed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewDeaths",
+            "columnName": "NewDeaths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewRecovered",
+            "columnName": "NewRecovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalConfirmed",
+            "columnName": "TotalConfirmed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalDeaths",
+            "columnName": "TotalDeaths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalRecovered",
+            "columnName": "TotalRecovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "country_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Country` TEXT NOT NULL, `CountryCode` TEXT NOT NULL, `Date` TEXT NOT NULL, `NewConfirmed` INTEGER NOT NULL, `NewDeaths` INTEGER NOT NULL, `NewRecovered` INTEGER NOT NULL, `Slug` TEXT NOT NULL, `TotalConfirmed` INTEGER NOT NULL, `TotalDeaths` INTEGER NOT NULL, `TotalRecovered` INTEGER NOT NULL, PRIMARY KEY(`Country`))",
+        "fields": [
+          {
+            "fieldPath": "Country",
+            "columnName": "Country",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CountryCode",
+            "columnName": "CountryCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Date",
+            "columnName": "Date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewConfirmed",
+            "columnName": "NewConfirmed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewDeaths",
+            "columnName": "NewDeaths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "NewRecovered",
+            "columnName": "NewRecovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Slug",
+            "columnName": "Slug",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalConfirmed",
+            "columnName": "TotalConfirmed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalDeaths",
+            "columnName": "TotalDeaths",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TotalRecovered",
+            "columnName": "TotalRecovered",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "Country"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "province_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fid` INTEGER NOT NULL, `deathCase` INTEGER NOT NULL, `positiveCase` INTEGER NOT NULL, `curedCase` INTEGER NOT NULL, `provinceCode` INTEGER NOT NULL, `province` TEXT NOT NULL, PRIMARY KEY(`provinceCode`))",
+        "fields": [
+          {
+            "fieldPath": "fid",
+            "columnName": "fid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deathCase",
+            "columnName": "deathCase",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "positiveCase",
+            "columnName": "positiveCase",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "curedCase",
+            "columnName": "curedCase",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provinceCode",
+            "columnName": "provinceCode",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "province",
+            "columnName": "province",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "provinceCode"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a807365fd351bcbe60351bd8710d2d28')"
+    ]
+  }
+}

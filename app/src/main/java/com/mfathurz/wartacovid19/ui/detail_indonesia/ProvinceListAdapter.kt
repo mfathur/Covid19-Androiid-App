@@ -1,4 +1,4 @@
-package com.mfathurz.wartacovid19.ui.adapters
+package com.mfathurz.wartacovid19.ui.detail_indonesia
 
 import android.view.LayoutInflater
 import android.view.View

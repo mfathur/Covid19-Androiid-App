@@ -1,4 +1,4 @@
-package com.mfathurz.wartacovid19.ui
+package com.mfathurz.wartacovid19.ui.detail_global
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mfathurz.wartacovid19.R
 import com.mfathurz.wartacovid19.di.Injection
-import com.mfathurz.wartacovid19.ui.adapters.CountryListAdapter
 import com.mfathurz.wartacovid19.utils.Utils
-import com.mfathurz.wartacovid19.viewmodels.DetailGlobalViewModel
-import com.mfathurz.wartacovid19.viewmodels.ViewModelFactory
+import com.mfathurz.wartacovid19.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_detail_global.*
 
 class DetailGlobalFragment : Fragment() {
@@ -40,7 +38,7 @@ class DetailGlobalFragment : Fragment() {
         buttonClick()
 
         detailGlobalViewModel.covidGlobalSummary.observe(viewLifecycleOwner, Observer {
-            it.body()?.let { data ->
+            it?.let { data ->
                 num_head_positive.text = Utils.numberConverter(data.Global.TotalConfirmed)
                 num_head_death.text = Utils.numberConverter(data.Global.TotalDeaths)
                 num_head_recovered.text = Utils.numberConverter(data.Global.TotalRecovered)

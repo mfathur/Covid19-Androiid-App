@@ -1,9 +1,12 @@
-package com.mfathurz.wartacovid19.viewmodels
-
+package com.mfathurz.wartacovid19.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.mfathurz.wartacovid19.data.Repository
+import com.mfathurz.wartacovid19.ui.detail_global.DetailGlobalViewModel
+import com.mfathurz.wartacovid19.ui.detail_indonesia.DetailIndonesiaViewModel
+import com.mfathurz.wartacovid19.ui.home.HomeViewModel
+import com.mfathurz.wartacovid19.ui.news.NewsViewModel
 
 class ViewModelFactory(private val repository: Repository) :
     ViewModelProvider.NewInstanceFactory() {

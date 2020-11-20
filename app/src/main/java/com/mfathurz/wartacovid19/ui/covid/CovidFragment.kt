@@ -1,4 +1,4 @@
-package com.mfathurz.wartacovid19.ui
+package com.mfathurz.wartacovid19.ui.covid
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mfathurz.wartacovid19.R
 import com.mfathurz.wartacovid19.data.local.InfoAboutCovid
-import com.mfathurz.wartacovid19.ui.adapters.InfoCovidRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_covid.*
 
 
@@ -38,19 +37,19 @@ class CovidFragment : Fragment() {
         symptomRecyclerView.apply {
             layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             setHasFixedSize(true)
-            adapter=InfoCovidRecyclerAdapter(InfoAboutCovid.symptoms)
+            adapter= InfoCovidRecyclerAdapter(InfoAboutCovid.symptoms)
         }
 
         transmissionRecyclerView.apply {
             layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             setHasFixedSize(true)
-            adapter=InfoCovidRecyclerAdapter(InfoAboutCovid.transmissions)
+            adapter= InfoCovidRecyclerAdapter(InfoAboutCovid.transmissions)
         }
 
         preventionRecyclerView.apply {
             layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             setHasFixedSize(true)
-            adapter=InfoCovidRecyclerAdapter(InfoAboutCovid.prevention)
+            adapter= InfoCovidRecyclerAdapter(InfoAboutCovid.prevention)
         }
     }
 

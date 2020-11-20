@@ -1,4 +1,4 @@
-package com.mfathurz.wartacovid19.ui
+package com.mfathurz.wartacovid19.ui.news
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,9 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mfathurz.wartacovid19.R
 import com.mfathurz.wartacovid19.di.Injection
-import com.mfathurz.wartacovid19.ui.adapters.NewsListAdapter
-import com.mfathurz.wartacovid19.viewmodels.NewsViewModel
-import com.mfathurz.wartacovid19.viewmodels.ViewModelFactory
+import com.mfathurz.wartacovid19.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_news.*
 
 class NewsFragment : Fragment() {
@@ -43,16 +41,14 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        newsViewModel.news.observe(viewLifecycleOwner, Observer {
-            it.body()?.let { news ->
-                listAdapter.submitList(news.articles)
-                newsRecyclerView.apply {
-                    adapter = listAdapter
-                    layoutManager = LinearLayoutManager(requireContext())
-                    setHasFixedSize(true)
-                }
-            }
+        newsRecyclerView.apply {
+            adapter = listAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+        }
+
+        newsViewModel.news.observe(viewLifecycleOwner, Observer { list ->
+            listAdapter.submitList(list)
         })
     }
-
 }

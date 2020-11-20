@@ -1,4 +1,4 @@
-package com.mfathurz.wartacovid19.ui
+package com.mfathurz.wartacovid19.ui.detail_indonesia
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,18 +13,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mfathurz.wartacovid19.R
 import com.mfathurz.wartacovid19.di.Injection
 import com.mfathurz.wartacovid19.models.IndoSummaryModel
-import com.mfathurz.wartacovid19.models.ProvinceData
-import com.mfathurz.wartacovid19.ui.adapters.ProvinceListAdapter
+import com.mfathurz.wartacovid19.ui.detail_indonesia.DetailIndonesiaFragmentArgs
+import com.mfathurz.wartacovid19.ui.detail_indonesia.DetailIndonesiaFragmentDirections
 import com.mfathurz.wartacovid19.utils.Utils
-import com.mfathurz.wartacovid19.viewmodels.DetailIndonesiaViewModel
-import com.mfathurz.wartacovid19.viewmodels.ViewModelFactory
+import com.mfathurz.wartacovid19.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_detail_indonesia.*
 
 class DetailIndonesiaFragment : Fragment() {
 
     private lateinit var detailIndonesiaViewModel: DetailIndonesiaViewModel
     private var indoSummary: IndoSummaryModel? = null
-    private val adapter = ProvinceListAdapter()
+    private lateinit var provinceListAdapter: ProvinceListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +45,8 @@ class DetailIndonesiaFragment : Fragment() {
         fabAnim()
         buttonClick()
 
+        provinceListAdapter = ProvinceListAdapter()
+
         arguments?.let {
             indoSummary = DetailIndonesiaFragmentArgs.fromBundle(it).indonesiaSummary
             num_head_positive.text = Utils.numberConverter(indoSummary?.cases as Int)
@@ -53,20 +54,14 @@ class DetailIndonesiaFragment : Fragment() {
             num_head_recovered.text = Utils.numberConverter(indoSummary?.cured as Int)
         }
 
-        detailIndonesiaViewModel.getCovidProvinceSummary().observe(viewLifecycleOwner, Observer {
-            val list: ArrayList<ProvinceData> = ArrayList()
-            it.body()?.let { provinceSummaryModel ->
-                val iterator = provinceSummaryModel.data.listIterator()
-                while (iterator.hasNext()) {
-                    val item = iterator.next()
-                    if (item.province != "Indonesia")
-                        list.add(item)
-                }
-                adapter.submitList(list)
-                detailRecyclerView.adapter = adapter
-                detailRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                detailRecyclerView.setHasFixedSize(true)
-            }
+        detailRecyclerView.apply {
+            adapter = provinceListAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+        }
+
+        detailIndonesiaViewModel.covidProvinceSummary.observe(viewLifecycleOwner, Observer { list ->
+            provinceListAdapter.submitList(list)
         })
     }
 

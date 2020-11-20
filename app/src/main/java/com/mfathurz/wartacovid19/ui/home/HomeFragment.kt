@@ -1,4 +1,4 @@
-package com.mfathurz.wartacovid19.ui
+package com.mfathurz.wartacovid19.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +13,9 @@ import androidx.navigation.Navigation
 import com.mfathurz.wartacovid19.R
 import com.mfathurz.wartacovid19.di.Injection
 import com.mfathurz.wartacovid19.models.IndoSummaryModel
+import com.mfathurz.wartacovid19.ui.home.HomeFragmentDirections
 import com.mfathurz.wartacovid19.utils.Utils
-import com.mfathurz.wartacovid19.viewmodels.HomeViewModel
-import com.mfathurz.wartacovid19.viewmodels.ViewModelFactory
+import com.mfathurz.wartacovid19.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -50,15 +50,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         buttonClick()
 
-        homeViewModel.indoCovidSummary.observe(viewLifecycleOwner, Observer {
-            it.body()?.let { item ->
-                numPositive.text = Utils.numberConverter(item.cases)
-                numDeaths.text = Utils.numberConverter(item.death)
-                numRecovered.text = Utils.numberConverter(item.cured)
-                positive = item.cases
-                death = item.death
-                recovered = item.cured
-            }
+        homeViewModel.indoCovidSummary.observe(viewLifecycleOwner, Observer { item ->
+            numPositive.text = Utils.numberConverter(item.cases)
+            numDeaths.text = Utils.numberConverter(item.death)
+            numRecovered.text = Utils.numberConverter(item.cured)
+            positive = item.cases
+            death = item.death
+            recovered = item.cured
         })
     }
 
